@@ -1,7 +1,9 @@
 function Home() {
 	return (
 		<section>
-			<h2>Welcome To the Store </h2>
+			<div className="wrapper">
+				<h2>Welcome To the Store </h2>
+			</div>{' '}
 		</section>
 	);
 }
