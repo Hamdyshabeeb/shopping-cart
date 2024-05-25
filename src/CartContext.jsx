@@ -31,6 +31,26 @@ export default function CartContextProvider({ children }) {
 		}
 	}
 
+	function removeOneQuantityFromCart(id) {
+		const productQuantity = getProductQuantity(id);
+		if (productQuantity === 0) return;
+		if (productQuantity === 1) {
+			setCartProducts(cartProducts.filter((product) => product.id !== id));
+		} else {
+			setCartProducts(
+				cartProducts.map((product) => {
+					return product.id === id
+						? { ...product, quantity: product.quantity - 1 }
+						: product;
+				})
+			);
+		}
+	}
+
+	function deleteProductFromCart(id) {
+		setCartProducts(cartProducts.filter((product) => product.id !== id));
+	}
+
 	const contextValue = {
 		items: cartProducts,
 		getProductQuantity,
