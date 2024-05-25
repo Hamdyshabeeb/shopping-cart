@@ -10,15 +10,48 @@ function ProductCard({ product }) {
 
 	return (
 		<li className=" border-2 rounded-lg border-gray-300 px-5 py-4 shadow-sm">
-			<h4 className="text-xl text-gray-700 mb-2">{product.title}</h4>
+			<h4 className="text-xl text-gray-700 mb-4">{product.title}</h4>
 			<p className="text-xl font-bold text-gray-600 mb-3 ">${product.price}</p>
-			<div className="min-h-20 flex flex-col justify-end">
-				<Button
-					className={'bg-blue-600 text-white rounded-lg mx-auto'}
-					onClick={() => cart.addProductToCart(product.id)}
-				>
-					Add To Cart
-				</Button>
+			<div className="min-h-24 flex flex-col justify-end">
+				{productQuantityInCart === 0 ? (
+					<Button
+						className={'bg-blue-600 text-white rounded-lg mx-auto'}
+						onClick={() => cart.addProductToCart(product.id)}
+					>
+						Add To Cart
+					</Button>
+				) : (
+					<>
+						<div className="flex items-center justify-between">
+							<p className="flex-auto text-gray-600 text-lg">
+								{' '}
+								In Cart:{productQuantityInCart}
+							</p>
+							<div className="flex gap-3 flex-auto justify-center">
+								<Button
+									onClick={() => cart.addProductToCart(product.id)}
+									className={
+										'bg-blue-600 text-white rounded-xl w-10  aspect-square'
+									}
+								>
+									{' '}
+									+{' '}
+								</Button>
+								<Button
+									className={
+										'bg-blue-600  text-white rounded-xl w-10  aspect-square'
+									}
+								>
+									-{' '}
+								</Button>
+							</div>
+						</div>
+						<Button className={'bg-red-600 text-white rounded-xl mx-auto mt-4'}>
+							{' '}
+							Remove From Cart{' '}
+						</Button>
+					</>
+				)}
 			</div>
 		</li>
 	);
