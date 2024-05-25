@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 function Button({ className, children, href = false }) {
 	const classes = ` px-3  text-gray-700  py-2 bg-transparent flex justify-center items-center w-fit curser cursor-pointer  ${
 		className || ''
@@ -6,9 +8,9 @@ function Button({ className, children, href = false }) {
 	const renderButton = () => <button className={classes}> {children} </button>;
 
 	const renderLink = () => (
-		<a href={href} className={classes}>
+		<Link to={href} className={classes}>
 			{children}
-		</a>
+		</Link>
 	);
 
 	return href ? renderLink() : renderButton();
