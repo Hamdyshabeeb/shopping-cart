@@ -4,6 +4,8 @@ export const CartContext = createContext({
 	items: [],
 	getProductQuantity: () => {},
 	addProductToCart: () => {},
+	removeOneQuantityFromCart: () => {},
+	deleteProductFromCart: () => {},
 });
 
 export default function CartContextProvider({ children }) {
@@ -35,7 +37,7 @@ export default function CartContextProvider({ children }) {
 		const productQuantity = getProductQuantity(id);
 		if (productQuantity === 0) return;
 		if (productQuantity === 1) {
-			setCartProducts(cartProducts.filter((product) => product.id !== id));
+			deleteProductFromCart(id);
 		} else {
 			setCartProducts(
 				cartProducts.map((product) => {
@@ -55,6 +57,8 @@ export default function CartContextProvider({ children }) {
 		items: cartProducts,
 		getProductQuantity,
 		addProductToCart,
+		removeOneQuantityFromCart,
+		deleteProductFromCart,
 	};
 
 	return (

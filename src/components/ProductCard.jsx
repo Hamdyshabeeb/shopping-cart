@@ -38,7 +38,7 @@ function ProductCard({ product }) {
 									+{' '}
 								</Button>
 								<Button
-									onClick={() => cart.removeOneQuantityFromCart}
+									onClick={() => cart.removeOneQuantityFromCart(product.id)}
 									className={
 										'bg-blue-600  text-white rounded-xl w-10  aspect-square'
 									}
@@ -47,7 +47,10 @@ function ProductCard({ product }) {
 								</Button>
 							</div>
 						</div>
-						<Button className={'bg-red-600 text-white rounded-xl mx-auto mt-4'}>
+						<Button
+							className={'bg-red-600 text-white rounded-xl mx-auto mt-4'}
+							onClick={() => cart.deleteProductFromCart(product.id)}
+						>
 							{' '}
 							Remove From Cart{' '}
 						</Button>
