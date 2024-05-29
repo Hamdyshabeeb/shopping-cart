@@ -16,4 +16,9 @@ const products = [
 	},
 ];
 
-export { products };
+function getProduct(id) {
+	const product = products.find((product) => product.id === id);
+	return product;
+}
+
+export { products, getProduct };

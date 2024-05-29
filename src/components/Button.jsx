@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 
 function Button({ className, children, href = false, onClick }) {
-	const classes = ` px-3  text-gray-700  py-2 bg-transparent flex justify-center items-center w-fit curser cursor-pointer  ${
+	const classes = ` px-3  text-gray-700  py-2  flex justify-center items-center w-fit curser cursor-pointer  ${
 		className || ''
 	}`;
 	const renderButton = () => (
