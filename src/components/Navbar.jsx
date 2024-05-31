@@ -22,7 +22,12 @@ function Navbar() {
 					onClick={() => showHideCart()}
 					className={'bg-blue-600 text-white rounded-lg'}
 				>
-					cart ({cart.items.length} items)
+					cart (
+					{cart.items.reduce(
+						(sum, currentItem) => sum + currentItem.quantity,
+						0
+					)}{' '}
+					items)
 				</Button>
 			</div>
 
