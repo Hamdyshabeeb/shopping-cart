@@ -16,6 +16,22 @@ function CartModal({ isActive, showHideCart }) {
 		}
 	}
 
+	async function checkout() {
+		const res = await fetch('http://localhost:5000/checkout', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify({ items: cart.items }),
+		});
+
+		const result = await res.json();
+
+		if (result.url) {
+			window.location.assign(result.url);
+		}
+	}
+
 	return (
 		<div
 			ref={modalBG}
@@ -66,7 +82,10 @@ function CartModal({ isActive, showHideCart }) {
 									.toFixed(2)}
 							</p>
 
-							<Button className={'bg-green-700 text-white rounded'}>
+							<Button
+								className={'bg-green-700 text-white rounded'}
+								onClick={checkout}
+							>
 								Purchase items!
 							</Button>
 						</div>{' '}
