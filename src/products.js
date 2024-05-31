@@ -1,16 +1,16 @@
 const products = [
 	{
-		id: 'price_1LnUTFDM1jwCEz8OGoOSXiSM',
+		id: 'price_1PMRTt00ZNosv7FF1AbVarl2',
 		title: 'Coffee',
 		price: 4.99,
 	},
 	{
-		id: 'price_1LnUTxDM1jwCEz8OAqHYTwKQ',
+		id: 'price_1PMRWj00ZNosv7FFBRcWdZZX',
 		title: 'Sunglasses',
 		price: 9.99,
 	},
 	{
-		id: 'price_1LnUUoDM1jwCEz8OvxIcJ7to',
+		id: 'price_1PMU9B00ZNosv7FFQu2A0ZIc',
 		title: 'Camera',
 		price: 39.99,
 	},
